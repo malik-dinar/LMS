@@ -1,41 +1,60 @@
 import { useNavigate } from "react-router-dom";
-import { useState } from "react";
-import { baseUrl } from "../../utils/Constant";
+import { useState,useEffect } from "react";
+import { baseUrl } from "../../utils/constant";
+import jwt_decode from "jwt-decode";
+import { useDispatch } from "react-redux";
+import { setUserData } from "../../Redux/user-tutor/user";
+import axios from "axios";
+
 
 function Login() {
   const navigate = useNavigate();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
+  const dispatch= useDispatch()
+
 
   const handleSubmit = async () => {
     if (!email || !password) {
       setError("Please enter your password and email");
     }
-    let result = await fetch(`${baseUrl}/users/login`, {
-      method: "post",
-      body: JSON.stringify({ email, password }),
-      headers: {
-        "Content-Type": "application/json",
-      },
-    });
-    result
-      .json()
-      .then((result) => {
-        if (!result.accessToken) {
-          setError(result.message);
+    await axios.post(`${baseUrl}/users/login`, {
+      email,
+      password
+    }).then((result) => {
+      console.log(result.data);
+        if (!result.data.accessToken) {
+          setError(result.data.message);
           return false;
         }
-        if (result.accessToken) {
-          localStorage.setItem("user", JSON.stringify(result.accessToken));
+        if (result.data.accessToken) {
+          localStorage.setItem("user", JSON.stringify(result.data.accessToken));
           localStorage.setItem("auth", true);
+          const user = jwt_decode(result.data.accessToken); 
+          dispatch(
+            setUserData({
+              userData: {
+                name: user.user.username,
+                _id: user.user.id,
+              },
+            })
+          );
           navigate("/user/home");
         }
       })
       .catch((e) => {
+        setError(e.response.data.message);
         console.log("error", e);
       });
   };
+
+  useEffect(() => {
+    const user = localStorage.getItem("user");
+    if (user) {
+      navigate("/user/home");
+    }
+  }, []);
 
   return (
     <>
@@ -50,7 +69,7 @@ function Login() {
 
         <div className="bg-white w-full md:max-w-md lg:max-w-full md:mx-auto md:w-1/2 xl:w-1/3 h-screen px-6 lg:px-16 xl:px-12 flex items-center justify-center">
           <div className="w-full h-100">
-            <h1 className="text-xl font-bold">EduLearn Login</h1>
+            <h1 className="text-xl font-bold mt-5">EduLearn Login</h1>
             <h1 className="text-xl md:text-2xl font-bold leading-tight mt-12">
               Log in to your account
             </h1>
@@ -97,14 +116,14 @@ function Login() {
             <h1 className="text-red-500">{error}</h1>
             <hr className="my-6 border-gray-300 w-full" />
 
-            <button
+            {/* <button
               type="button"
               className="w-full block bg-white hover:bg-gray-100 focus:bg-gray-100 text-gray-900 font-semibold rounded-lg px-4 py-3 border border-gray-300"
             >
               <div className="flex items-center justify-center">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
-                  xmlnsXlink="http://www.w3.org/1999/xlink" /* update the xlink namespace */
+                  xmlnsXlink="http://www.w3.org/1999/xlink" 
                   className="w-6 h-6"
                   viewBox="0 0 48 48"
                 >
@@ -143,7 +162,7 @@ function Login() {
                 </svg>
                 <span className="ml-4"> Log in with Mail </span>
               </div>
-            </button>
+            </button> */}
 
             <p className="mt-8">
               Need an account?

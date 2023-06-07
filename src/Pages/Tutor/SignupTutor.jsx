@@ -1,6 +1,4 @@
-import SignupTutor from "../../Components/Tutor/signupPageT";
-
-
+import SignupTutor from "../../Components/Tutor/SignupPageT";
 
 function SignupTutorPage(){
     return(

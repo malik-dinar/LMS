@@ -1,4 +1,4 @@
-import LoginTutor from "../../Components/Tutor/loginPageT";
+import LoginTutor from "../../Components/Tutor/LoginPageT";
 
 function LoginTutorPage(){
     return (

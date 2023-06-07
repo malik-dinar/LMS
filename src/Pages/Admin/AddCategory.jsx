@@ -1,9 +1,13 @@
-import AddCategory from "../../Components/Admin/addCategory";
+import DefaultLayout from "../../components/admin/DefaultLayout";
+import AddCategory from "../../components/admin/AddCategory";
+import AdminNav from "../../components/admin/AdminNav";
 
 function AddCategoryPage() {
   return (
     <>
-      <AddCategory/>
+      <DefaultLayout>
+        <AddCategory />
+      </DefaultLayout>
     </>
   );
 }

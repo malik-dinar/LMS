@@ -1,6 +1,6 @@
-import { useNavigate } from "react-router-dom";
-import { useState } from "react";
-import { baseUrl } from "../../utils/Constant";
+import { Navigate, useNavigate } from "react-router-dom";
+import { useState,useEffect } from "react";
+import { baseUrl } from "../../utils/constant";
 
 function LoginPageA() {
   const navigate = useNavigate();
@@ -22,6 +22,7 @@ function LoginPageA() {
     result
       .json()
       .then((result) => {
+        console.log(result);
         if (!result.accessToken) {
           setError(result.message);
           return false;
@@ -36,6 +37,13 @@ function LoginPageA() {
         console.log("error", e);
       });
   };
+
+  useEffect(() => {
+    const user = localStorage.getItem("user");
+    if (user) {
+      navigate("/admin/dashboard");
+    }
+  }, []);
 
   return (
     <>

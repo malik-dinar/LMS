@@ -1,4 +1,4 @@
-import LoginPageA from "../../Components/Admin/loginPageA";
+import LoginPageA from "../../components/admin/LoginPageA";
 
 
 function LoginAdminPage(){

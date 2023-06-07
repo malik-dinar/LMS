@@ -1,3 +1,138 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.page-item{
+    /* border: 1px solid rgb(216, 200, 200); */
+    background-color: rgba(140, 133, 249, 0.8);
+    color: white;
+    /* border-radius: 4px; */
+    border-left: 2px solid white;
+    /* border-color: black; */
+}
+
+
+
+.page-link{
+    padding: 0px 12px 0px 12px;
+}
+
+.active{
+    background-color: rgb(55 48 163 / 0.8);
+    /* border: 1px solid black; */
+}
+
+.pagination{
+    display: flex;
+    /* margin: 10px; */
+}
+
+.pagination li{
+    padding: 4px;
+}
+
+.pagination :nth-child(1){
+    border-radius: 10px 0px 0px 10px;
+    border-left: 1px;
+}
+
+.pagination :nth-last-child(1){
+    border-radius: 0px 10px 10px    0px;
+}
+
+
+
+  .App-header {
+    height: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .App-header h1 {
+    color: white;
+    font-size: 24px;
+  }
+  
+  .video-page {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+  }
+   
+  .like-report {
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 20px;
+  }
+    
+  .video-thumbnail {
+    width: 240px;
+    height: 135px;
+    margin-right: 10px  ;
+  }
+  
+  .video-thumbnail img{
+    width: 200px;
+    height: 130px;
+    object-fit: cover;
+  }
+  
+  .video-info h3 {
+    margin-top: 0;
+    margin-bottom: 10px;
+  }
+  
+  .video-info p {
+    margin: 0;
+    margin-bottom: 10px;
+    font-size: 14px;
+  }
+  
+  .video-actions {
+    display: flex;
+    justify-content: flex-start;
+    margin-top: 10px;
+  }
+  
+  .video-actions button {
+    margin-right: 10px;
+    background-color: #ff0000;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+
+  input.input-error,
+  select.input-error {
+    border-color: #ff0000;
+  }
+
+  button:disabled {
+    opacity: 0.35;
+  }
+
+
+  .like-button {
+    position: relative;
+  }
+  
+  .like-button::after {
+    content: "Like";
+    position: absolute;
+    top: -20px;
+    left: 0;
+    background-color: #534f4f;
+    color: #fff;
+    padding: 5px;
+    border-radius: 5px;
+    display: none;
+    margin-bottom: 20px;
+  }
+  
+  .like-button:hover::after {
+    display: block;
+  }

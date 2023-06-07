@@ -11,7 +11,11 @@ module.exports = {
       },
       colors: {
         blue: {
-          DEFAULT: '#0F1145', 
+          // DEFAULT: '#494bbf', 
+           DEFAULT: '#0f1145', 
+        },
+        blueGray:{
+          DEFAULT:'#6699CC',
         },
         violet: {
           DEFAULT: '#430269', 

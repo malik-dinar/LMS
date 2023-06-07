@@ -1,9 +1,11 @@
-import AdminHome from "../../Components/Admin/AdminHome";
+import DefaultLayout from "../../components/admin/DefaultLayout";
+import Home from "../../components/admin/Home";
+import UserManagement from "./UserManagement";
 
 function AdminDashBoard() {
   return (
     <>
-      <AdminHome />
+        <UserManagement/>
     </>
   );
 }
