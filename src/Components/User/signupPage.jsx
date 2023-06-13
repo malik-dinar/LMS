@@ -44,7 +44,6 @@ function Signup(){
                 return false
             }
             else{
-                console.log(result)
                 navigate('/user/login')
             }
         })

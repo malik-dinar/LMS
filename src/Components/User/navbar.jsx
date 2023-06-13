@@ -23,7 +23,6 @@ function Navbar() {
   };
 
   const toggleNav = () => {
-    console.log("toggle");
     let navbar = document.getElementById("navbar-default");
     if (navbar.style.display === "block") {
       navbar.style.display = "none";

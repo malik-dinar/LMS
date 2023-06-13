@@ -43,7 +43,6 @@ const loadingCircleTransition = {
 }
 
 const Loader = () => {
-    console.log('loading started....');
   return (
     <div>
       <div className="fixed  w-full min-h-screen z-50 bg-black opacity-30" />

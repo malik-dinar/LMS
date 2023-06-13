@@ -30,7 +30,6 @@ function Like({ courseId, videoId }) {
         `${baseUrl}/users/total-likes?videoId=${videoId}&courseId=${courseId}`
       )
       .then((response) => {
-        console.log(response.data);
         setTotalLikes(response.data.like);
       });
   };

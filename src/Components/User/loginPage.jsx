@@ -23,7 +23,6 @@ function Login() {
       email,
       password
     }).then((result) => {
-      console.log(result.data);
         if (!result.data.accessToken) {
           setError(result.data.message);
           return false;

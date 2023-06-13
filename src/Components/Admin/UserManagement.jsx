@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import axios from "axios";
-import Pagination from "../Common/Pagination";
+import Pagination from "../common/Pagination";
 import { baseUrl } from "../../utils/constant";
 
 function UserManagementPage() {

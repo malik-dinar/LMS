@@ -6,6 +6,7 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build",
+    "sync": "aws s3 sync ./dist s3://e.eduventure.online",
     "preview": "vite preview"
   },
   "dependencies": {

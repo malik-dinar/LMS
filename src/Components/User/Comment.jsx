@@ -41,8 +41,6 @@ function Comment({ courseId, videoId }) {
       onSubmit,
     });
 
-  console.log(errors);
-
   const getComments = async (courseId, videoId) => {
     await axios
       .get(`${baseUrl}/users/comment`, {

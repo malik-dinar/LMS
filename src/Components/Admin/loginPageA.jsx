@@ -22,7 +22,6 @@ function LoginPageA() {
     result
       .json()
       .then((result) => {
-        console.log(result);
         if (!result.accessToken) {
           setError(result.message);
           return false;

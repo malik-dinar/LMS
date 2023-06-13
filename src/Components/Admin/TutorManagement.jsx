@@ -1,5 +1,5 @@
 import { useEffect, useState, useRef } from "react";
-import Pagination from "../Common/Pagination";
+import Pagination from "../common/Pagination";
 import axios from "axios";
 import { baseUrl } from "../../utils/constant";
 

@@ -9,7 +9,7 @@ import Swal from "sweetalert2";
 
 function ListCourse() {
   const [courses, setCourses] = useState([]);
-  const [totalPages, setTotalPages] = useState([]);
+  // const [totalPages, setTotalPages] = useState([]);
   let currentPage = useRef();
 
   useEffect(() => {
@@ -22,20 +22,20 @@ function ListCourse() {
       .get(`${baseUrl}/users/all-course`, {
         params: {
           page: currentPage.current,
-          limit: 3,
+          limit: 50,
         },
       })
       .then((result) => {
-        setTotalPages(result.data.totalPages);
+        // setTotalPages(result.data.totalPages);
         setCourses(result.data.course);
       })
       .catch((err) => console.log(err));
   };
 
-  const handlePageClick = (e) => {
-    currentPage.current = e.selected + 1;
-    getAllCourses();
-  };
+  // const handlePageClick = (e) => {
+  //   currentPage.current = e.selected + 1;
+  //   getAllCourses();
+  // };
 
   const deleteVideo = async (courseId) => {
     Swal.fire({
@@ -56,7 +56,9 @@ function ListCourse() {
                 axios.get(`${baseUrl}/users/all-course`).then((result) => {
                   setCourses(result.data);
                 });
-              });
+              }).then(()=>{
+                getAllCourses();
+              })
           }
         );
       }
@@ -66,7 +68,7 @@ function ListCourse() {
     <>
       <h1 className="ml-5 underline">List Courses</h1>
       <div className="flex flex-wrap">
-        {courses.map((items) => {
+        { courses.length ? courses.map((items) => {
           return (
             <div className="" key={items._id}>
               <div className="max-w-6xl mx-auto  w-96 h-96 ">
@@ -108,9 +110,9 @@ function ListCourse() {
               </div>
             </div>
           );
-        })}
+        }): <></>}
       </div>
-      {courses && courses?.length > 0 ? (
+      {/* {courses && courses?.length > 0 ? (
         <div className="mt-4 mb-4">
           <Pagination
             totalPages={totalPages}
@@ -121,7 +123,7 @@ function ListCourse() {
         <>
           <h1 className="ml-4 mb-4">No result found </h1>
         </>
-      )}
+      )} */}
     </>
   );
 }
