@@ -23,9 +23,9 @@
 ## Installation
 
 
-To run Theora locally, follow these steps:
+To run Eduventure locally, follow these steps:
 
-1. Clone the repository: `git clone https://github.com/yourusername/theora.git`
+1. Clone the repository: `git clone https://github.com/malik-dinar/eduventure_client.git`
 2. Install dependencies: `npm install`
 3. Create a logs folder in the root directory: `mkdir logs`
 3. Set up environment variables: Create a `.env` file based on the provided `.env.example`.
@@ -35,7 +35,7 @@ To run Theora locally, follow these steps:
 
 ## Contributing
 
-Contributions to Theora are welcome! If you have any bug reports, feature requests, or suggestions, please open an issue or submit a pull request. 
+Contributions to Eduventre are welcome! If you have any bug reports, feature requests, or suggestions, please open an issue or submit a pull request. 
 
 ## Acknowledgements
 
