@@ -1,6 +1,7 @@
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
-import { baseUrl } from "../../utils/Constant";
+import { baseUrl } from "../../utils/constant";
+import axios from "axios";
 
 function SignupTutor(){
     const navigate = useNavigate();
@@ -30,21 +31,16 @@ function SignupTutor(){
           setError("Invalid credentials");
           return false;
         }
-        let result = await fetch(`${baseUrl}/tutors/register`, {
-            method: 'post',
-            body: JSON.stringify({ tutorname, email, password }),
-            headers: {
-                'Content-Type': 'application/json'
-            }
-        })
-        
-        result.json().then((result) => {
-            if (result.message) {
+        let result = await axios.post(`${baseUrl}/tutors/register`, {
+            tutorname,
+            email,
+            password
+        }).then((result) => {
+            if (result.data.message) {
                 setPasswordMatch(result.message)
                 return false
             }
             else{
-                console.log(result)
                 navigate('/tutor/login')
             }
         })

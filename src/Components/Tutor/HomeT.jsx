@@ -1,4 +1,9 @@
+import { useNavigate } from "react-router-dom";
+
+
 function HomeT() {
+  const navigate = useNavigate()
+
   return (
     <>
       <div className="bg-blue">
@@ -10,9 +15,9 @@ function HomeT() {
                 superior teacher demonstrates. The great teacher inspires.
               </h1>
               <div className="mt-5">
-                <h1 className="block text-black text-2xl ">
-                  Education is not the filling of a pail, but the lighting of a
-                  fire
+              <h1 className="block text-gray-300 font-mono text-2xl ">
+                  "Education is not the filling of a pail, but the lighting of a
+                  fire"
                 </h1>
               </div>
             </div>
@@ -25,8 +30,9 @@ function HomeT() {
         <div className="bg-blue">
           <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="shadow-xl rounded-lg overflow-hidden bg-gradient-to-r from-gray-900 to-violet lg:p-12 mt-12">
-              <div className="flex justify-center">
-                <button className="bg-gray-500 hover:bg-gray-400 text-white font-medium py-2 px-4 rounded">
+              <div className="flex justify-center mt-7">
+                <button className="bg-gray-500 hover:bg-gray-400 text-white font-medium py-2 px-4 rounded"
+                  onClick={()=>navigate('/tutor/course')} >
                   Create Course
                 </button>
               </div>
@@ -34,13 +40,13 @@ function HomeT() {
                 <h1 className="text-center tracking-wide text-xl font-bold text-white mb-4">
                   Come teach with us
                 </h1>
-                <p className="text-white leading-7 text-center">
+                <p className="text-white leading-7 text-center mb-2">
                   Become an instructor and change lives — including your own
                 </p>
               </div>
             </div>
           </div>
-        </div>
+        </div>          
       </div>
     </>
   );

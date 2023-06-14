@@ -38,8 +38,8 @@ export default function ErrorPAge() {
         </div>
 
         <div className="home__footer flex items-center justify-center gap-2 self-end text-sm font-semibold">
-          <p>0891 2345 6789</p>
-          <p>|</p>
+          <p></p>
+          <p>8129520382|</p>
           <p>info@xcompany.com</p>
         </div>
       </section>
